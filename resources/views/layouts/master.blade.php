@@ -85,8 +85,8 @@
                                     <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
                                             class="fi-rr-user"></i></button>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="register.html">Je crée mon compte</a></li>
-                                        <li><a class="dropdown-item" href="login.html">Je me connecte</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('register') }}">Je crée mon compte</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('login') }}">Je me connecte</a></li>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
