@@ -45,8 +45,28 @@
                                 <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
                                         class="fi-rr-user"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="register.html">Je crée mon compte</a></li>
-                                    <li><a class="dropdown-item" href="login.html">Je me connecte</a></li>
+                                    @if (Route::has('login'))
+                                        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                                            @auth
+                                                <li><a class="dropdown-item" href="{{ route('profile.show') }}">Mon
+                                                        profil</a></li>
+                                                <form action="{{ route('logout') }}" method="post">
+                                                    @csrf
+                                                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                        this.closest('form').submit(); " role="button">Déconnexion</a>
+                                                    </li>
+                                                </form>
+                                            @else
+                                                <li><a class="dropdown-item" href="{{ route('login') }}">Je me
+                                                        connecte</a></li>
+
+                                                @if (Route::has('register'))
+                                                    <li><a class="dropdown-item" href="{{ route('register') }}">Je crée
+                                                            mon compte</a></li>
+                                                @endif
+                                            @endauth
+                                        </div>
+                                    @endif
                                 </ul>
                             </div>
                             <!-- Header User End -->
