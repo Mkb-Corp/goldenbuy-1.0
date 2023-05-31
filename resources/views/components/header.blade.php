@@ -110,7 +110,7 @@
                         </a>
                         <ul>
                             <li><a href="{{ route('home') }}">Accueil</a></li>
-                            <li><a href="#">Produits</a></li>
+                            <li><a href="{{ route('products.all') }}">Produits</a></li>
                         </ul>
                     </div>
                 </div>
@@ -232,7 +232,8 @@
                                     <ul style="display: block;">
                                         @foreach ($cat->sub_categories as $sub)
                                             <li>
-                                                <div class="ec-sidebar-sub-item"><a href="#">{{ $sub->name }}</a>
+                                                <div class="ec-sidebar-sub-item"><a
+                                                        href="{{ route('products_category', [$sub->id]) }}">{{ $sub->name }}</a>
                                                 </div>
                                             </li>
                                         @endforeach

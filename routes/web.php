@@ -17,6 +17,8 @@ use App\Http\Controllers\ProductController as ClientProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products/{id}', [ClientProductController::class, 'product_details'])->name('product_details');
+Route::get('/products/category/{id}', [ClientProductController::class, 'products_by_category'])->name('products_category');
+Route::get('/products/all/}', [ClientProductController::class, 'index'])->name('products.all');
 
 Route::middleware([
     'auth:sanctum',
