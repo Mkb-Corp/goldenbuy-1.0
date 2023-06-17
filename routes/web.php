@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController as ClientProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/products/{id}', [ClientProductController::class, 'product_details'])->name('product_details');
+Route::get('/products/category/{id}', [ClientProductController::class, 'products_by_category'])->name('products_category');
+Route::get('/products/all/}', [ClientProductController::class, 'index'])->name('products.all');
 
 Route::middleware([
     'auth:sanctum',
