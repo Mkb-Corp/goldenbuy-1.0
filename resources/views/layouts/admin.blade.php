@@ -172,7 +172,11 @@
 										</div>
 									</li>
 									<li class="dropdown-footer">
-										<a href="index.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            this.closest('form').submit(); " role="button"> <i class="mdi mdi-logout"></i> Log Out </a>
+                                        </form>
 									</li>
 								</ul>
 							</li>
