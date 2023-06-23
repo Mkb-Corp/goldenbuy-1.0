@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController as ClientProductController;
+use App\Http\Controllers\admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard.index');
     })->name('dashboard');
+    Route::get('/dashboard/products/add', [ProductController::class, 'add'])->name('products.add');
+    Route::post('/dashboard/products/add', [ProductController::class, 'new'])->name('products.new');
+
 });
