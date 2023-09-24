@@ -93,7 +93,7 @@
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link"  href="#">
+										<a class="sidenav-item-link"  href="{{ route('dashboard.products.index') }}">
 											<span class="nav-text">Tous les articles</span>
 										</a>
 									</li>
