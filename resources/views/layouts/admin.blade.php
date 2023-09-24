@@ -88,7 +88,7 @@
 							<div class="collapse">
 								<ul class="sub-menu" id="products" data-parent="#sidebar-menu">
 									<li class="">
-										<a class="sidenav-item-link" href="#">
+										<a class="sidenav-item-link" href="{{ route('dashboard.products.add') }}">
 											<span class="nav-text">Ajouter un article</span>
 										</a>
 									</li>
