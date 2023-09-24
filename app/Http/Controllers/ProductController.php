@@ -20,10 +20,10 @@ class ProductController extends Controller
         ]);
     }
 
-    public function product_details($id)
+    public function product_details($slug)
     {
         $categories = Category::all();
-        $product = Product::where('id', $id)->get()[0];
+        $product = Product::where('slug', $slug)->get()[0];
 
         return view('products.details', [
             'categories' => $categories,
@@ -31,13 +31,16 @@ class ProductController extends Controller
         ]);
     }
 
-    public function products_by_category($categoryId)
+    public function products_by_category($categoryUid)
     {
         $categories = Category::all();
 
-        $products = Product::where('sub_category_id', $categoryId)->get();
 
-        $category = SubCategory::where('id', $categoryId)->get()[0];
+        $category = SubCategory::where('uid', $categoryUid)->get()[0];
+
+        $products = Product::where('sub_category_id', $category->id)->get();
+
+        // $category = SubCategory::where('id', $categoryId)->get()[0];
 
         return view('products.categoryproducts', [
             'categories' => $categories,

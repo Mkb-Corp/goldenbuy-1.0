@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('main_picture');
             $table->string('tags')->nullable();
             $table->string('pictures')->nullable();
+            $table->string('slug')->default('null');
             $table->timestamps();
         });
     }
