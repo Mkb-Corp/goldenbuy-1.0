@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="ec-pro-content">
                                         <h5 class="ec-pro-title"><a
-                                                href="{{ route('product_details', [$p->id]) }}">{{ $p->name }}</a></h5>
+                                                href="{{ route('product_details', [$p->slug]) }}">{{ $p->name }}</a></h5>
                                         <span class="ec-price">
                                             <span class="new-price">${{ $p->price }}</span>
                                         </span>

@@ -20,10 +20,10 @@ class ProductController extends Controller
         ]);
     }
 
-    public function product_details($id)
+    public function product_details($slug)
     {
         $categories = Category::all();
-        $product = Product::where('id', $id)->get()[0];
+        $product = Product::where('slug', $slug)->get()[0];
 
         return view('products.details', [
             'categories' => $categories,
