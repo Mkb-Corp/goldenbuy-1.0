@@ -253,7 +253,7 @@
                                         @foreach ($cat->sub_categories as $sub)
                                             <li>
                                                 <div class="ec-sidebar-sub-item"><a
-                                                        href="{{ route('products_category', [$sub->id]) }}">{{ $sub->name }}</a>
+                                                        href="{{ route('products_category', [$sub->uid]) }}">{{ $sub->name }}</a>
                                                 </div>
                                             </li>
                                         @endforeach

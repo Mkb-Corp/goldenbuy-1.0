@@ -52,7 +52,7 @@
                             </div>
                         @endforeach
 
-                        <div class="col-sm-12 shop-all-btn"><a href="#">Tous les articles</a></div>
+                        <div class="col-sm-12 shop-all-btn"><a href="{{ route('products.all') }}">Tous les articles</a></div>
                     </div>
                 </div>
             </div>
