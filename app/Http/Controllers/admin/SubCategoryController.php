@@ -14,7 +14,7 @@ class SubCategoryController extends Controller
         $categories = Category::all();
         $sub_categories = SubCategory::all();
 
-        return view('admin.categories.subcategories', [
+        return view('dashboard.categories.subcategories', [
             'categories' => $categories,
             'sub_categories' => $sub_categories
         ]);
@@ -29,6 +29,6 @@ class SubCategoryController extends Controller
 
         SubCategory::create($request->post());
 
-        return redirect()->route('subcategories.index')->with('message', 'Success');
+        return redirect()->route('dashboard.subcategories.index')->with('message', 'Success');
     }
 }

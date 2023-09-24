@@ -13,7 +13,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view('admin.categories.categories', [
+        return view('dashboard.categories.categories', [
             'categories' => $categories
         ]);
     }
@@ -27,6 +27,6 @@ class CategoryController extends Controller
 
         Category::create($request->post());
 
-        return redirect()->route('categories.index');
+        return redirect()->route('dashboard.categories.index');
     }
 }

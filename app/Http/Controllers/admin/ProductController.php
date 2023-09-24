@@ -15,7 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.products.index');
+        $products = Product::all();
+
+        return view('dashboard.products.index', [
+            "products" => $products
+        ]);
     }
 
      /**
@@ -25,7 +29,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
 
-        return view('admin.products.add', [
+        return view('dashboard.products.add', [
             'categories' => $categories
         ]);
     }

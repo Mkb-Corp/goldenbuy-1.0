@@ -66,12 +66,12 @@
 							<div class="collapse">
 								<ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
 									<li class="">
-										<a class="sidenav-item-link" href="#">
+										<a class="sidenav-item-link" href="{{ route('dashboard.categories.index') }}">
 											<span class="nav-text">Catégories</span>
 										</a>
 									</li>
                                     <li class="">
-										<a class="sidenav-item-link" href="#">
+										<a class="sidenav-item-link" href="{{ route('dashboard.subcategories.index') }}">
 											<span class="nav-text">Sous-catégories</span>
 										</a>
 									</li>
@@ -88,12 +88,12 @@
 							<div class="collapse">
 								<ul class="sub-menu" id="products" data-parent="#sidebar-menu">
 									<li class="">
-										<a class="sidenav-item-link" href="#">
+										<a class="sidenav-item-link" href="{{ route('dashboard.products.add') }}">
 											<span class="nav-text">Ajouter un article</span>
 										</a>
 									</li>
 									<li class="">
-										<a class="sidenav-item-link"  href="#">
+										<a class="sidenav-item-link"  href="{{ route('dashboard.products.index') }}">
 											<span class="nav-text">Tous les articles</span>
 										</a>
 									</li>
@@ -168,7 +168,7 @@
 									<li class="dropdown-header">
 										<img src="{{ asset('admin/assets/img/user/user.png') }}" class="img-circle" alt="User Image" />
 										<div class="d-inline-block">
-											John Deo <small class="pt-1">john.example@gmail.com</small>
+											{{ Auth::user()->name }} <small class="pt-1">{{ Auth::user()->email }}</small>
 										</div>
 									</li>
 									<li class="dropdown-footer">
