@@ -66,12 +66,12 @@
 							<div class="collapse">
 								<ul class="sub-menu" id="categorys" data-parent="#sidebar-menu">
 									<li class="">
-										<a class="sidenav-item-link" href="#">
+										<a class="sidenav-item-link" href="{{ route('dashboard.categories.index') }}">
 											<span class="nav-text">Catégories</span>
 										</a>
 									</li>
                                     <li class="">
-										<a class="sidenav-item-link" href="#">
+										<a class="sidenav-item-link" href="{{ route('dashboard.subcategories.index') }}">
 											<span class="nav-text">Sous-catégories</span>
 										</a>
 									</li>
