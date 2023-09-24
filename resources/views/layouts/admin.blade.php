@@ -168,7 +168,7 @@
 									<li class="dropdown-header">
 										<img src="{{ asset('admin/assets/img/user/user.png') }}" class="img-circle" alt="User Image" />
 										<div class="d-inline-block">
-											John Deo <small class="pt-1">john.example@gmail.com</small>
+											{{ Auth::user()->name }} <small class="pt-1">{{ Auth::user()->email }}</small>
 										</div>
 									</li>
 									<li class="dropdown-footer">
