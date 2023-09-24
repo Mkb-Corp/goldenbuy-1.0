@@ -10,8 +10,8 @@
     <title>Golden Buy</title>
     <meta name="keywords"
         content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
-    <meta name="description" content="Best ecommerce html template for single and multi vendor store.">
-    <meta name="author" content="ashishmaraviya">
+    <meta name="description" content="Achetez Facilement sur Golden Buy.">
+    <meta name="author" content="kreative-touch">
 
     <!-- site Favicon -->
     <link rel="icon" href="assets/images/favicon/favicon.png" sizes="32x32" />
@@ -46,7 +46,7 @@
 </head>
 
 <body>
-    
+
     <x-header />
 
     {{ $slot }}
