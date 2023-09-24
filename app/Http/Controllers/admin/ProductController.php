@@ -49,7 +49,7 @@ class ProductController extends Controller
         if ($request->file()) {
             $filePath = $request->file('main_picture')->store('products', 'public');
 
-            $product = new Product([
+            $product = Product::create([
                 'name' => $request->post('name'),
                 'main_picture' => $filePath,
                 'description' => $request->post('description'),
@@ -59,7 +59,6 @@ class ProductController extends Controller
                 'tags' => $request->post('tags'),
             ]);
 
-            $product->save();
 
             return back()->with('success','Produit ajouté avec succés');
         }

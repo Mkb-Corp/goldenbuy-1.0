@@ -180,7 +180,7 @@
                                             <div class="col-md-12">
                                                 <label class="form-label">Tags <span>( Type and
                                                         make comma to separate tags )</span></label>
-                                                <input type="text" class="form-control" id="group_tag" name="group_tag"
+                                                <input type="text" class="form-control" id="group_tag"
                                                     value="" placeholder="" name="tags" data-role="tagsinput" />
                                             </div>
                                             <div class="col-md-12">
