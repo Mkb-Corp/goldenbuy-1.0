@@ -34,8 +34,13 @@
                                                 title="Quick view" data-bs-toggle="modal"
                                                 data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
                                             <div class="ec-pro-actions">
-                                                <button title="Add To Cart" class="add-to-cart"><i
-                                                        class="fi-rr-shopping-basket"></i> Add To Cart</button>
+                                                <form action="{{ route('basket.add') }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="product_slug" value="{{ $p->slug }}">
+                                                    <input type="hidden" name="qty" value="1">
+                                                    <button type="submit" title="Add To Cart" class="add-to-cart"><i
+                                                            class="fi-rr-shopping-basket"></i> Add To Cart</button>
+                                                </form>
                                                 @if ($p->isWishlisted())
                                                     <a href="{{ route('wishlist.add', [$p->slug]) }}"
                                                         class="ec-btn-group wishlist active" title="Wishlist"><i
@@ -90,5 +95,4 @@
         </div>
     </section>
     <!-- offer Section End -->
-
 @endsection
