@@ -7,8 +7,8 @@
             <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
                 <div class="card card-mini dash-card card-1">
                     <div class="card-body">
-                        <h2 class="mb-1">1,503</h2>
-                        <p>Utilisateurs</p>
+                        <h2 class="mb-1">{{ $users_count }}</h2>
+                        <p>Utilisateur(s)</p>
                         <span class="mdi mdi-account-arrow-left"></span>
                     </div>
                 </div>
@@ -16,8 +16,8 @@
             <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
                 <div class="card card-mini dash-card card-2">
                     <div class="card-body">
-                        <h2 class="mb-1">79,503</h2>
-                        <p>Produits</p>
+                        <h2 class="mb-1">{{ $products_count }}</h2>
+                        <p>Produit(s)</p>
                         <span class="mdi mdi-account-clock"></span>
                     </div>
                 </div>
@@ -25,8 +25,8 @@
             <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
                 <div class="card card-mini dash-card card-3">
                     <div class="card-body">
-                        <h2 class="mb-1">15,503</h2>
-                        <p>Commandes</p>
+                        <h2 class="mb-1">{{ $orders_count }}</h2>
+                        <p>Commande{s}</p>
                         <span class="mdi mdi-package-variant"></span>
                     </div>
                 </div>
