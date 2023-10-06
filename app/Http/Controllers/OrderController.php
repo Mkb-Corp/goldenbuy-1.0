@@ -22,26 +22,39 @@ class OrderController extends Controller
 
         if ($order) {
 
-            OrderItem::create([
-                'order_id' => $order->id,
-                'product_id' => $product->id,
-                'qty' => $request->post('qty')
-            ]);
+            $itemToBasket = OrderItem::where([
+                ['order_id', $order->id],
+                ['product_id', $product->id]
+            ])->get();
+
+
+            if ($itemToBasket == null) {
+                OrderItem::create([
+                    'order_id' => $order->id,
+                    'product_id' => $product->id,
+                    'qty' => $request->post('qty')
+                ]);
+            }
         } else {
             $order = Order::create([
                 'user_id' => Auth::user()->id,
                 'status' => 'INITIATED'
             ]);
+            $itemToBasket = OrderItem::where([
+                ['order_id', $order->id],
+                ['product_id', $product->id]
+            ])->get();
 
-            OrderItem::create([
-                'order_id' => $order->id,
-                'product_id' => $product->id,
-                'qty' => $request->post('qty')
-            ]);
+
+            if ($itemToBasket == null) {
+                OrderItem::create([
+                    'order_id' => $order->id,
+                    'product_id' => $product->id,
+                    'qty' => $request->post('qty')
+                ]);
+            }
         }
 
         return redirect()->back()->with('success', 'Produit ajouté');
     }
-
-
 }
