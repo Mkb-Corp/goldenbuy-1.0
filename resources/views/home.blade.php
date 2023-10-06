@@ -36,7 +36,7 @@
                                             <div class="ec-pro-actions">
                                                 <button title="Add To Cart" class="add-to-cart"><i
                                                         class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                <a class="ec-btn-group wishlist" title="Wishlist"><i
+                                                <a class="ec-btn-group wishlist" href="{{ route('wishlist.add', [$p->slug]) }}" title="Wishlist"><i
                                                         class="fi-rr-heart"></i></a>
                                             </div>
                                         </div>
