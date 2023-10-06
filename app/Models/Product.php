@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class Product extends Model
@@ -47,5 +48,28 @@ class Product extends Model
         }
 
         return $slug;
+    }
+
+    public function isWishlisted()  {
+        $user = Auth::user();
+
+        if ($user != null) {
+            $product = Wishlist::where([
+                ['product_id', $this->id],
+                ['user_id', $user->id],
+                ['wishlisted', 1]])->first();
+
+            if ($product != null) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+
+        return true;
     }
 }

@@ -36,24 +36,34 @@
                                             <div class="ec-pro-actions">
                                                 <button title="Add To Cart" class="add-to-cart"><i
                                                         class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                <a class="ec-btn-group wishlist" title="Wishlist"><i
-                                                        class="fi-rr-heart"></i></a>
+                                                @if ($p->isWishlisted())
+                                                    <a href="{{ route('wishlist.add', [$p->slug]) }}"
+                                                        class="ec-btn-group wishlist active" title="Wishlist"><i
+                                                            class="fi-rr-heart"></i></a>
+                                                @else
+                                                    <a href="{{ route('wishlist.add', [$p->slug]) }}"
+                                                        class="ec-btn-group wishlist" title="Wishlist"><i
+                                                            class="fi-rr-heart"></i></a>
+                                                @endif
+
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="ec-pro-content">
                                         <h5 class="ec-pro-title"><a
-                                                href="{{ route('product_details', [$p->slug]) }}">{{ $p->name }}</a></h5>
+                                                href="{{ route('product_details', [$p->slug]) }}">{{ $p->name }}</a>
+                                        </h5>
                                         <span class="ec-price">
-                                            <span class="new-price">${{ $p->price }}</span>
+                                            <span class="new-price">${{ $p->price }} </span>
                                         </span>
-
                                     </div>
                                 </div>
                             </div>
                         @endforeach
 
-                        <div class="col-sm-12 shop-all-btn"><a href="{{ route('products.all') }}">Tous les articles</a></div>
+                        <div class="col-sm-12 shop-all-btn"><a href="{{ route('products.all') }}">Tous les articles</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,7 +143,7 @@
                                 <img src="assets/images/cat-banner/3.jpg" alt="" />
                             </div>
                             <span class="panel-overlay">
-                                <a href="shop-left-sidebar-col-3.html" class="btn btn-primary">View All</a>
+                                <a href="#" class="btn btn-primary">View All</a>
                             </span>
                         </div>
                         <!-- 3rd Category tab end -->
@@ -143,7 +153,7 @@
                                 <img src="assets/images/cat-banner/4.jpg" alt="" />
                             </div>
                             <span class="panel-overlay">
-                                <a href="shop-left-sidebar-col-3.html" class="btn btn-primary">View All</a>
+                                <a href="#" class="btn btn-primary">View All</a>
                             </span>
                         </div>
                         <!-- 4th Category tab end -->

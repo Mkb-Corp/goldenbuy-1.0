@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\ProductController as ClientProductController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\SubCategoryController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +30,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard.index');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/products', [ProductController::class, 'index'])
     ->name('dashboard.products.index');
     Route::get('/dashboard/products/new', [ProductController::class, 'add'])
@@ -42,6 +42,8 @@ Route::middleware([
     Route::get('/dashboard/subcategories/', [SubCategoryController::class, 'index'])
     ->name('dashboard.subcategories.index');
 
+    Route::get('/wishlist/add/{slug}', [WishlistController::class, 'add_to_wishlist'])
+    ->name('wishlist.add');
     // Post Requests
     Route::post('/dashboard/categories/add', [CategoryController::class, 'add'])
     ->name('dashboard.categories.new');
