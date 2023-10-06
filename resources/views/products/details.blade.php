@@ -42,8 +42,15 @@
                                                 <button class="btn btn-primary">Ajouter a la carte</button>
                                             </div>
                                             <div class="ec-single-wishlist">
-                                                <a class="ec-btn-group wishlist" title="Wishlist"><i
-                                                        class="fi-rr-heart"></i></a>
+                                                @if ($product->isWishlisted())
+                                                    <a href="{{ route('wishlist.add', [$product->slug]) }}"
+                                                        class="ec-btn-group wishlist active" title="Wishlist"><i
+                                                            class="fi-rr-heart"></i></a>
+                                                @else
+                                                    <a href="{{ route('wishlist.add', [$product->slug]) }}"
+                                                        class="ec-btn-group wishlist" title="Wishlist"><i
+                                                            class="fi-rr-heart"></i></a>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="ec-single-social">
