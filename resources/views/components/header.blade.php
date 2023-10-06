@@ -73,7 +73,7 @@
                             <!-- Header wishlist Start -->
                             <a href="#" class="ec-header-btn ec-header-wishlist">
                                 <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                <span class="ec-header-count">4</span>
+                                <span class="ec-header-count">{{ $wishlist_count }}</span>
                             </a>
                             <!-- Header wishlist End -->
                             <!-- Header Cart Start -->
