@@ -73,13 +73,13 @@
                             <!-- Header wishlist Start -->
                             <a href="#" class="ec-header-btn ec-header-wishlist">
                                 <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                <span class="ec-header-count">4</span>
+                                <span class="ec-header-count">{{ $wishlist_count }}</span>
                             </a>
                             <!-- Header wishlist End -->
                             <!-- Header Cart Start -->
                             <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
                                 <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                <span class="ec-header-count cart-count-lable">3</span>
+                                <span class="ec-header-count cart-count-lable">{{ $basket_count }}</span>
                             </a>
                             <!-- Header Cart End -->
                         </div>
@@ -167,42 +167,20 @@
                 <button class="ec-close">×</button>
             </div>
             <ul class="eccart-pro-items">
+                @foreach ($order_items as $p)
                 <li>
-                    <a href="product-left-sidebar.html" class="sidekka_pro_img"><img
-                            src="assets/images/product-image/6_1.jpg" alt="product"></a>
+                    <a href="{{ route('product_details', [$p->product->slug]) }}" class="sidekka_pro_img"><img
+                            src="{{ asset('storage/' . $p->product->main_picture) }}" alt="{{ $p->product->slug }}"></a>
                     <div class="ec-pro-content">
-                        <a href="product-left-sidebar.html" class="cart_pro_title">T-shirt For Women</a>
-                        <span class="cart-price"><span>$76.00</span> x 1</span>
+                        <a href="{{ route('product_details', [$p->product->slug]) }}" class="cart_pro_title">{{ $p->product->name }}</a>
+                        <span class="cart-price"><span>${{ $p->product->price }}</span> x {{ $p->qty }}</span>
                         <div class="qty-plus-minus">
-                            <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
+                            <input class="qty-input" type="text" name="ec_qtybtn" value="{{ $p->qty }}" />
                         </div>
                         <a href="javascript:void(0)" class="remove">×</a>
                     </div>
                 </li>
-                <li>
-                    <a href="product-left-sidebar.html" class="sidekka_pro_img"><img
-                            src="assets/images/product-image/12_1.jpg" alt="product"></a>
-                    <div class="ec-pro-content">
-                        <a href="product-left-sidebar.html" class="cart_pro_title">Women Leather Shoes</a>
-                        <span class="cart-price"><span>$64.00</span> x 1</span>
-                        <div class="qty-plus-minus">
-                            <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
-                        </div>
-                        <a href="javascript:void(0)" class="remove">×</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="product-left-sidebar.html" class="sidekka_pro_img"><img
-                            src="assets/images/product-image/3_1.jpg" alt="product"></a>
-                    <div class="ec-pro-content">
-                        <a href="product-left-sidebar.html" class="cart_pro_title">Girls Nylon Purse</a>
-                        <span class="cart-price"><span>$59.00</span> x 1</span>
-                        <div class="qty-plus-minus">
-                            <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
-                        </div>
-                        <a href="javascript:void(0)" class="remove">×</a>
-                    </div>
-                </li>
+                @endforeach
             </ul>
         </div>
         <div class="ec-cart-bottom">
@@ -211,15 +189,11 @@
                     <tbody>
                         <tr>
                             <td class="text-left">Sub-Total :</td>
-                            <td class="text-right">$300.00</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">VAT (20%) :</td>
-                            <td class="text-right">$60.00</td>
+                            <td class="text-right">${{ $basket_amount }}</td>
                         </tr>
                         <tr>
                             <td class="text-left">Total :</td>
-                            <td class="text-right primary-color">$360.00</td>
+                            <td class="text-right primary-color">${{ $basket_amount }}</td>
                         </tr>
                     </tbody>
                 </table>

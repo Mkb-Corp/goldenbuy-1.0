@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController as ClientProductController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\SubCategoryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WishlistController;
 
 /*
@@ -49,4 +50,6 @@ Route::middleware([
     ->name('dashboard.categories.new');
     Route::post('subcategories/add', [SubCategoryController::class, 'add'])
     ->name('dashboard.subcategories.new');
+    Route::post('/basket/add/', [OrderController::class, 'product_to_order'])
+    ->name('basket.add');
 });
