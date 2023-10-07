@@ -199,7 +199,7 @@
                 </table>
             </div>
             <div class="cart_btn">
-                <a href="#" class="btn btn-primary">Voir le panier</a>
+                <a href="{{ route('cart.show') }}" class="btn btn-primary">Voir le panier</a>
                 <a href="#" class="btn btn-secondary">Payer</a>
             </div>
         </div>

@@ -7,10 +7,33 @@ use App\Models\OrderItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class OrderController extends Controller
 {
     //
+    function cart() : View {
+
+        $cart_items = array();
+        $basket_amount = 0;
+        $order = Order::where([
+            ['user_id', Auth::user()->id],
+            ['status', 'INITIATED']
+        ])->first();
+
+        if ($order) {
+            $cart_items = OrderItem::where('order_id', $order->id)->get();
+
+            foreach ($cart_items as $item) {
+                $basket_amount += $item->product->price * $item->qty;
+            }
+        }
+        return view('orders.cart', [
+            'basket_amount' => $basket_amount,
+            'cart_items' => $cart_items
+        ]);
+    }
+
     function product_to_order(Request $request)
     {
 
