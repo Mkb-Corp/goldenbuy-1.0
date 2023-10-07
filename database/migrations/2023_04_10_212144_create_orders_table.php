@@ -19,6 +19,8 @@ return new class extends Migration
             $table->uuid('uid')->default(Str::uuid()->toString());
             $table->foreignId('user_id');
             $table->string('status');
+            $table->string('delivery_method')->default('HOME_DELIVERY');
+            $table->string('delivery_address')->nullable();
             $table->timestamps();
         });
     }

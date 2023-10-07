@@ -42,6 +42,8 @@ Route::middleware([
     ->name('dashboard.categories.index');
     Route::get('/dashboard/subcategories/', [SubCategoryController::class, 'index'])
     ->name('dashboard.subcategories.index');
+    Route::get('/basket', [OrderController::class, 'cart'])
+    ->name('cart.show');
 
     Route::get('/wishlist/add/{slug}', [WishlistController::class, 'add_to_wishlist'])
     ->name('wishlist.add');
