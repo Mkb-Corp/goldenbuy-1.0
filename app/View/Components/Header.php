@@ -43,16 +43,16 @@ class Header extends Component
                 ['status', 'INITIATED']
             ])->first();
 
+            if ($order) {
+                $orders_items = OrderItem::where('order_id', $order->id)->get();
 
-            $orders_items = OrderItem::where('order_id', $order->id)->get();
-
-            foreach ($orders_items as $item) {
-                $basket_amount += $item->product->price * $item->qty;
+                foreach ($orders_items as $item) {
+                    $basket_amount += $item->product->price * $item->qty;
+                }
             }
 
+
             $wishlist_count = count($wishlist_count);
-
-
         }
 
         return view('components.header', [
